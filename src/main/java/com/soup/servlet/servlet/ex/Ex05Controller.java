@@ -8,12 +8,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("servlet/ex05")
+@WebServlet("/servlet/ex05")
 public class Ex05Controller extends HttpServlet {
 	
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		response.setCharacterEncoding("utf-8");
+
 		response.setContentType("text/html");
 		
 		// 이름과 생년월일 전달 받고 이름과 나이를 html 로 rseponse에 담는다.
