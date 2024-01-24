@@ -21,6 +21,8 @@
   		for(int i = 0; i < scores.length; i++){
   			sum+=scores[i];
   		}
+  		
+  		double average = sum / (double)scores.length;
   	%>
   	
   	<!-- 
@@ -32,10 +34,11 @@
 		List<String> scoreList = Arrays.asList(new String[]{"X", "O", "O", "O", "X", "O", "O", "O", "X", "O"});
 		
 		int score = 0;
-		for(int i = 0; i < scoreList.size(); i++){
-			if(scoreList.get(i).equals("O")){
+		
+		for(String answer:scoreList){
+			if(answer.equals("O")){
 				score+=10;
-			}
+			}			
 		}
 	%>  	
   	
@@ -60,9 +63,9 @@
   		
   	%>
   	
-  	<h3>점수 평균은 <%= sum / 5.0 %> 입니다.</h3>
+  	<h3>점수 평균은 <%= average %> 입니다.</h3>
   	<h3>채점 결과는 <%= score %>점 입니다.</h3>
   	<h3>1에서 50까지의 합은 <%= allSum(50) %></h3>
-  	<h3><%= birthDay %> 의 나이는 <%= age %> 입니다.</h3>
+  	<h3><%= birthDay %> 의 나이는 <%= age %>살 입니다.</h3>
 </body>
 </html>
