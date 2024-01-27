@@ -28,6 +28,7 @@
 	    list.add(map);
 	    
 	    String menu = request.getParameter("menu");
+	    String checkPoint = request.getParameter("checkPoint");
 
 	%>
 
@@ -49,8 +50,14 @@
 					for(Map<String, Object> store:list) { 
 						
 						String storeMenu = (String)store.get("menu");
-						
+						double storePoint = (Double)store.get("point");
+						// 메뉴 조건
 						if(storeMenu.equals(menu)){
+							// 가게 정보를 tr로 포함시키는 조건
+							
+							// checkPoint가 null 일 때
+							// checkPoint가 checked 이고, point가 4.0 이상인 경우
+							if(checkPoint == null || (checkPoint.equals("checked") && storePoint >= 4.0)){
 						
 				%>
 				<tr>
@@ -59,6 +66,7 @@
 					<td><%= store.get("point") %></td>
 				</tr>
 				<% 
+							}
 						} 
 					}
 				%>	
