@@ -3,16 +3,22 @@ package com.soup.servlet.database.test;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.soup.servlet.common.MysqlService;
 
+@WebServlet("/database/homepage/insert")
 public class HomepageInsertController extends HttpServlet {
 	
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		
+		response.setCharacterEncoding("utf-8");
+		response.setContentType("text/html;charset=UTF-8");
+		request.setCharacterEncoding("UTF-8");
 		
 		PrintWriter out = response.getWriter();
 		

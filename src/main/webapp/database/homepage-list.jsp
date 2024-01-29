@@ -15,7 +15,7 @@
 		MysqlService mysqlService = MysqlService.getInstance();
 		mysqlService.connect();
 		
-		ResultSet resultSet = mysqlService.select("SELECT `name`, `url` FROM `homepage` ORDER BY `id` DESC;");
+		ResultSet resultSet = mysqlService.select("SELECT `id`, `name`, `url` FROM `homepage` ORDER BY `id` DESC;");
 	
 	%>
 	
@@ -23,11 +23,13 @@
 		<tr>
 			<th>사이트</th>
 			<th>사이트 주소</th>
+			<th></th>
 		</tr>
 		<% while(resultSet.next()) { %>
 		<tr>
 			<td><%= resultSet.getString("name") %></td>
 			<td><a href="<%= resultSet.getString("url") %>" target="_blank"><%= resultSet.getString("url") %></a></td>
+			<td><button type="button" class="btn btn-primary">삭제</button></td>
 		</tr>
 		<% } %>
 	</table>
