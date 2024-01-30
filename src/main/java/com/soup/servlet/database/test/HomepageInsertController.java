@@ -16,12 +16,7 @@ public class HomepageInsertController extends HttpServlet {
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		
-		response.setCharacterEncoding("utf-8");
-		response.setContentType("text/html;charset=UTF-8");
-		request.setCharacterEncoding("UTF-8");
-		
-		PrintWriter out = response.getWriter();
-		
+
 		String name = request.getParameter("name");
 		String url = request.getParameter("url");
 		
@@ -31,12 +26,11 @@ public class HomepageInsertController extends HttpServlet {
 		String query = "INSERT INTO `homepage` \r\n"
 				+ "(`name`, `url`) \r\n"
 				+ "VALUE\r\n"
-				+ "('" + name + "', " + url + "');";
+				+ "('" + name + "', '" + url + "');";
 		
 		int count = mysqlService.update(query);
-		out.println("수행결과 : " + count);
-		
-//		response.sendRedirect("/database/homepage-list.jsp");
+
+		response.sendRedirect("/database/homepage-list.jsp");
 		
 		
 	}
